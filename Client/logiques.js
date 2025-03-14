@@ -83,7 +83,7 @@ function ajoutMessage() {
             document.querySelector("textarea").value = '';
             document.querySelector('#pseudo').value = '';
 
-            // update(msgs); //Si on veut mettre à jour la liste des messages après chaque ajout
+            // update(msgs); //Si on veut mettre à jour la liste des messages automatiquement après chaque ajout sans appuyer sur le bouton Mise A Jour
         })
         .catch(error => {
             console.error("Erreur lors de l'envoi du message:", error);
