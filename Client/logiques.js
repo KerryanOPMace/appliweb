@@ -34,6 +34,12 @@ console.log(applique(function(n) { return (n+1); } , [1,2,3,4,5,6]));
 
 
 
+//Comme ça le site fonctionnera en local et déployé sur Render
+const isLocal = window.location.hostname === "localhost";
+const API_URL = isLocal ? "http://localhost:8080" : "https://serveur-8cdy.onrender.com";
+
+
+
 // Tableau initial des messages
 let msgs = [];
 
@@ -56,7 +62,7 @@ function ajoutMessage() {
     const pseudo = document.querySelector('#pseudo').value.trim(); 
 
     if (message && pseudo) {
-        fetch(`http://localhost:8080/msg/post`, {
+        fetch(`${API_URL}/msg/post`, {
             method: 'POST',  //C'est parceque j'ai choisi de mettre l'endpoint en post
             headers: {
                 'Content-Type': 'application/json',  
@@ -90,7 +96,7 @@ function ajoutMessage() {
 
 
 function miseAJour() {
-    fetch('http://localhost:8080/msg/getAll')
+    fetch(`${API_URL}/msg/getAll`)
         .then(function(response) {
             return response.json();
         })

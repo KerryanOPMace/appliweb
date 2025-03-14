@@ -62,6 +62,12 @@ var allMsgs = [
   { "message": "Pareil qu'Eudes", "pseudo": "Béranger", "date": new Date() }
 ];
 
+
+
+
+
+
+
 //Endpoint pour obtenir le nombre de messages
 app.get('/msg/nber', function(req, res) {
   res.json({ count: allMsgs.length });
